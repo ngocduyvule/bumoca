@@ -1,3 +1,27 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#main {
+  width: 100%;
+  margin: 50px 0;
+  font: {
+    weight: bold;
+    size: 2em;
+  }
+  color: #999;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  a:link, a:visited, a:hover, a:active {
+    color: #999;
+    text-decoration: none;
+  }
+  .menu_link {
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #EEE;
+    border-radius: 5px;
+  }
+}
+

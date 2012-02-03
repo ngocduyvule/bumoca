@@ -1,11 +1,12 @@
 Bumoca::Application.routes.draw do
-  get "business_model_canvas/index"
-
   devise_for :users, skip: :registrations
   
   get "home/index"
+  get "business_model_canvas/index"
   
   root to: 'home#index'
+  
+  match '/businessmodelcanvas', to: 'business_model_canvas#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
