@@ -1,0 +1,23 @@
+%h1 Listing blocs
+
+%table
+  %tr
+    %th Name
+    %th Text
+    %th Image
+    %th
+    %th
+    %th
+
+  - @blocs.each do |bloc|
+    %tr
+      %td= bloc.name
+      %td= bloc.text
+      %td= bloc.image
+      %td= link_to 'Show', bloc
+      %td= link_to 'Edit', edit_bloc_path(bloc)
+      %td= link_to 'Destroy', bloc, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Bloc', new_bloc_path

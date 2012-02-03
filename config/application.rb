@@ -55,7 +55,6 @@ module Bumoca
       g.view_specs false
       g.helper_specs false
       g.template_engine :haml
-      g.orm :Mongoid
     end
     
     config.filter_parameters += [:password, :password_confirmation]

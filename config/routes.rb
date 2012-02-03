@@ -1,4 +1,6 @@
 Bumoca::Application.routes.draw do
+  resources :blocs
+
   devise_for :users, skip: :registrations
   
   get "home/index"

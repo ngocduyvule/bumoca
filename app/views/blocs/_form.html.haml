@@ -1,0 +1,19 @@
+= form_for @bloc do |f|
+  -if @bloc.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bloc.errors.count, "error")} prohibited this bloc from being saved:"
+      %ul
+        - @bloc.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :text
+    = f.text_field :text
+  .field
+    = f.label :image
+    = f.text_field :image
+  .actions
+    = f.submit 'Save'

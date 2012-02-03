@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @bloc.name
+%p
+  %b Text:
+  = @bloc.text
+%p
+  %b Image:
+  = @bloc.image
+
+= link_to 'Edit', edit_bloc_path(@bloc)
+\|
+= link_to 'Back', blocs_path
