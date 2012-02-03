@@ -28,8 +28,6 @@ gem 'rspec-rails', '~> 2.8.1', group: [:development, :test]
 gem 'factory_girl_rails', '~> 1.6.0', group: :test
 gem 'mongoid-rspec', '~>1.4.4', group: :test
 
-gem 'seed-fu'
-
 gem 'haml', '~> 3.1.4'
 group :development do
   gem 'hpricot', '~> 0.8.6'
