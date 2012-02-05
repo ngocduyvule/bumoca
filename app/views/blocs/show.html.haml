@@ -1,14 +1,23 @@
 %p#notice= notice
 
 %p
+  %b Position:
+  = @bloc.position
+%p
   %b Name:
   = @bloc.name
+%p
+  %b Code:
+  = @bloc.code
 %p
   %b Text:
   = @bloc.text
 %p
   %b Image:
   = @bloc.image
+%p
+  %b Type:
+  = @bloc.type
 
 = link_to 'Edit', edit_bloc_path(@bloc)
 \|

@@ -7,6 +7,9 @@
   .left {
     float: left;
   }
+  .right {
+    float: right;
+  }
   .clear {
     clear: both;
   }
@@ -33,5 +36,17 @@
   .bas {
     width: 700px;
     height: 268px;
+  }
+  .title {
+    font: {
+      weight: normal;
+      size: 0.6em;
+    }
+  }
+  .button_to {
+    float: right;
+    font: {
+      weight: bold;
+    }
   }
 }

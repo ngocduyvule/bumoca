@@ -1,8 +1,10 @@
 class BlocsController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /blocs
   # GET /blocs.json
   def index
-    @blocs = Bloc.all
+    @blocs = Bloc.all(sort: :position)
 
     respond_to do |format|
       format.html # index.html.erb
