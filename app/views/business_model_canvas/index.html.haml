@@ -20,47 +20,27 @@
         modal: true
       },
       hide: false,
-      style: 'ui-tooltip-light ui-tooltip-rounded'
+      style: 'ui-tooltip-light ui-tooltip-rounded',
+      //events: {
+        //render: function(event, api) {
+          //$('input[name=commit]', api.elements.content).click(api.hide);
+        //},
+        //hide: function(event, api) { api.destroy(); }
+      //}
     });
+    $('.content').jScrollPane();
   });
 %h1 Business Model
 #bmc
   - @blocs.each do |bloc|
     - case bloc.code
-      - when 'PC',  'PV',  'SC',  'CE',  'RE'
-        :javascript
-          $(document).ready(function() {
-            $('##{bloc.code} .title').qtip({
-              content: '#{quote_string(bloc.text)}',
-              style: 'ui-tooltip-light ui-tooltip-rounded'
-            });
-          });
-        != "<div id='#{bloc.code}' class='left bloc #{bloc.type}'>"
-        .title.left #{bloc.name}
-        = button_to_function "+", "changeBlocId('#{bloc.id}')",  :class => 'button_to_add_post'
+      - when 'PC', 'PV', 'SC', 'CE', 'RE'
+        = render partial: 'bloc_content', locals: { bloc: bloc, left: 'left' }
       - when 'AC', 'RC'
         != "<div class='left bloc_cont haut'>"
-        :javascript
-          $(document).ready(function() {
-            $('##{bloc.code} .title').qtip({
-              content: '#{quote_string(bloc.text)}',
-              style: 'ui-tooltip-light ui-tooltip-rounded'
-            });
-          });
-        != "<div id='#{bloc.code}' class='bloc #{bloc.type}'>"
-        .title.left #{bloc.name}
-        = button_to_function "+", "changeBlocId('#{bloc.id}')",  :class => 'button_to_add_post'
-      - when 'RES',  'CX'
-        :javascript
-          $(document).ready(function() {
-            $('##{bloc.code} .title').qtip({
-              content: '#{quote_string(bloc.text)}',
-              style: 'ui-tooltip-light ui-tooltip-rounded'
-            });
-          });
-        != "<div id='#{bloc.code}' class='bloc #{bloc.type}'>"
-        .title.left #{bloc.name}
-        = button_to_function "+", "changeBlocId('#{bloc.id}')",  :class => 'button_to_add_post'
+        = render partial: 'bloc_content', locals: { bloc: bloc, left: '' }
+      - when 'RES', 'CX'
+        = render partial: 'bloc_content', locals: { bloc: bloc, left: '' }
         != "</div>"
     != "</div>"
     - if bloc.code == 'SC' || bloc.code == 'RE'

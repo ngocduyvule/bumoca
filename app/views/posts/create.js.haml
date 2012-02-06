@@ -1,3 +1,6 @@
-console.log('#{@post.bloc_id}');
-$('#ui-tooltip-modal').hide();
-$('#qtip-overlay').hide();
+$('.qtip').hide();
+$('.blurs').hide();
+var contenu = "<div class='post'>";
+contenu += "<h4>#{@post.title}</h4>";
+contenu += "</div>";
+$('##{@bloc.code} .content .jspPane').append(contenu);

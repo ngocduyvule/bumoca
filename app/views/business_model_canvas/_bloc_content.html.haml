@@ -1,0 +1,16 @@
+:javascript
+  $(document).ready(function() {
+    $('##{bloc.code} .title').qtip({
+      content: '#{quote_string(bloc.text)}',
+      style: 'ui-tooltip-light ui-tooltip-rounded'
+    });
+  });
+!= "<div id='#{bloc.code}' class='#{left} bloc #{bloc.type}'>"
+.title.left #{bloc.name}
+= button_to_function "+", "changeBlocId('#{bloc.id}')",  :class => 'button_to_add_post'
+.clear
+.content
+  - @posts.each do |post|
+    - if post.bloc_id == bloc.id
+      .post
+        %h4 #{post.title}

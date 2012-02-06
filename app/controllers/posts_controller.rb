@@ -43,6 +43,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
+    @bloc = Bloc.find(@post.bloc_id)
 
     respond_to do |format|
       if @post.save
@@ -82,4 +83,5 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 end
