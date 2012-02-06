@@ -7,3 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function changeBlocId(id) {
+	$('#post_bloc_id').val(id);
+}

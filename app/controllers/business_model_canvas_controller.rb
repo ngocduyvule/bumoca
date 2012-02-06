@@ -3,6 +3,7 @@ class BusinessModelCanvasController < ApplicationController
   
   def index
     @blocs = Bloc.all(sort: :position)
+    @post = Post.new
   end
   
 end

@@ -1,4 +1,5 @@
 Bumoca::Application.routes.draw do
+  resources :posts
   resources :blocs
 
   devise_for :users, skip: :registrations

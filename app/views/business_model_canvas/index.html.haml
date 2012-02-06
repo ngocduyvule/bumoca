@@ -1,21 +1,69 @@
+:javascript
+  $(document).ready(function() {
+    $('.button_to_add_post').qtip({
+      id: 'modal',
+      content: {
+        text: $('#modal_cont'),
+        title: {
+          text: 'Ajouter un Post-It',
+          button: true
+        }
+      },
+      position: {
+        my: 'center',
+        at: 'center',
+        target: $(document.body)
+      },
+      show: {
+        event: 'click',
+        solo: true,
+        modal: true
+      },
+      hide: false,
+      style: 'ui-tooltip-light ui-tooltip-rounded'
+    });
+  });
 %h1 Business Model
 #bmc
   - @blocs.each do |bloc|
     - case bloc.code
       - when 'PC',  'PV',  'SC',  'CE',  'RE'
+        :javascript
+          $(document).ready(function() {
+            $('##{bloc.code} .title').qtip({
+              content: '#{quote_string(bloc.text)}',
+              style: 'ui-tooltip-light ui-tooltip-rounded'
+            });
+          });
         != "<div id='#{bloc.code}' class='left bloc #{bloc.type}'>"
         .title.left #{bloc.name}
-        = button_to "+", action: "new"
+        = button_to_function "+", "changeBlocId('#{bloc.id}')",  :class => 'button_to_add_post'
       - when 'AC', 'RC'
         != "<div class='left bloc_cont haut'>"
+        :javascript
+          $(document).ready(function() {
+            $('##{bloc.code} .title').qtip({
+              content: '#{quote_string(bloc.text)}',
+              style: 'ui-tooltip-light ui-tooltip-rounded'
+            });
+          });
         != "<div id='#{bloc.code}' class='bloc #{bloc.type}'>"
         .title.left #{bloc.name}
-        = button_to "+", action: "new"
+        = button_to_function "+", "changeBlocId('#{bloc.id}')",  :class => 'button_to_add_post'
       - when 'RES',  'CX'
+        :javascript
+          $(document).ready(function() {
+            $('##{bloc.code} .title').qtip({
+              content: '#{quote_string(bloc.text)}',
+              style: 'ui-tooltip-light ui-tooltip-rounded'
+            });
+          });
         != "<div id='#{bloc.code}' class='bloc #{bloc.type}'>"
         .title.left #{bloc.name}
-        = button_to "+", action: "new"
+        = button_to_function "+", "changeBlocId('#{bloc.id}')",  :class => 'button_to_add_post'
         != "</div>"
     != "</div>"
     - if bloc.code == 'SC' || bloc.code == 'RE'
       .clear
+#modal_cont.display_none
+  = render 'posts/form'
