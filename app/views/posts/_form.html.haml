@@ -9,7 +9,11 @@
   .field
     = f.label :title
     = f.text_field :title
+  = f.fields_for :notes do |n|
+    .field
+      = n.label :text
+      = n.text_area :text
   .field
-    = f.text_field :bloc_id
+    = f.hidden_field :bloc_id
   .actions
     = f.submit 'Save'
