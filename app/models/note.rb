@@ -3,6 +3,6 @@ class Note
   include Mongoid::Timestamps
   field :text, :type => String
   embedded_in :post, inverse_of: :notes
-  belongs_to :user
-  validates_presence_of :text
+  #belongs_to :post
+  attr_accessible :text
 end

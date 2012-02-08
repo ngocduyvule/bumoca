@@ -20,7 +20,11 @@
         modal: true
       },
       hide: false,
-      style: 'ui-tooltip-light ui-tooltip-rounded',
+      style: {
+        width: 500,
+        height: 200,
+        classes: 'ui-tooltip-light ui-tooltip-rounded'
+      }
       //events: {
         //render: function(event, api) {
           //$('input[name=commit]', api.elements.content).click(api.hide);

@@ -14,3 +14,6 @@
     - if post.bloc_id == bloc.id
       .post
         %h4 #{post.title}
+        -#%p #{post.notes.text}
+        - post.notes.all.each do |note|
+          %p #{note}

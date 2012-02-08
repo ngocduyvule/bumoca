@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.notes.build
+    #@post.build_note
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +46,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @bloc = Bloc.find(@post.bloc_id)
+    #@note = @post.notes.build(params[:post])
 
     respond_to do |format|
       if @post.save

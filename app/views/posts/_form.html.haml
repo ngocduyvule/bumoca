@@ -7,13 +7,13 @@
           %li= msg
 
   .field
+    = f.text_field :bloc_id
+  .field
     = f.label :title
     = f.text_field :title
-  = f.fields_for :notes do |n|
+  = f.fields_for :note do |n|
     .field
       = n.label :text
-      = n.text_area :text
-  .field
-    = f.hidden_field :bloc_id
+      = n.text_area :text, cols: 55, rows: 5
   .actions
     = f.submit 'Save'
